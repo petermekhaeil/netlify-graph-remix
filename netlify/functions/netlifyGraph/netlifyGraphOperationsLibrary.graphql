@@ -1,0 +1,31 @@
+query Issues @netlify(id: """72dcbc94-e91a-4f84-98eb-b10c0a20a814""", doc: """Fetch repo issues""") {
+  gitHub {
+    repository(name: "netlify-graph-remix", owner: "petermekhaeil") {
+      issues(first: 100, states: OPEN) {
+        edges {
+          node {
+            id
+            body
+            labels(first: 10) {
+              edges {
+                node {
+                  id
+                  name
+                }
+              }
+            }
+            title
+            createdAt
+            reactions(first: 100) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

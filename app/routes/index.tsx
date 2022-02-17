@@ -1,31 +1,38 @@
+import { Link, useLoaderData, json } from 'remix';
+import slugify from 'slugify';
+import NetlifyGraph from '../../netlify/functions/netlifyGraph';
+
+type LoaderData = Awaited<ReturnType<typeof getLoaderData>>;
+
+async function getLoaderData() {
+  const { data } = await NetlifyGraph.fetchIssues(
+    {},
+    { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
+  );
+
+  return data.gitHub.repository.issues.edges.map(({ node }) => {
+    return {
+      ...node,
+      slug: slugify(node.title).toLowerCase()
+    };
+  });
+}
+
+export const loader = async () => {
+  return json<LoaderData>(await getLoaderData());
+};
+
 export default function Index() {
+  let data = useLoaderData<LoaderData>();
+
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <div>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {data.map((item) => (
+          <li key={item.id}>
+            <Link to={item.slug}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
