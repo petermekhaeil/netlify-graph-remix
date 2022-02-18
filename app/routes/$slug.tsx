@@ -5,13 +5,28 @@ import slugify from 'slugify';
 import parseFrontMatter from 'front-matter';
 import { marked } from 'marked';
 
+type FetchIssuesResponse = Awaited<ReturnType<typeof NetlifyGraph.fetchIssues>>;
+
 async function getLoaderData(slug?: string) {
-  const { data } = await NetlifyGraph.fetchIssues(
-    {},
-    { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
+  // Netlify Graph's `ONEGRAPH_AUTHLIFY_TOKEN` variable does not
+  // seem to be available in production.
+  // Possible reason: https://github.com/netlify/labs/issues/26
+  // Workaround: Fetch data using Netlify Functions which seems
+  // to have Netlify Graph authentication working.
+  const res = await fetch(
+    'https://netlify-graph-remix.netlify.app/.netlify/functions/github'
   );
 
-  const post = data.gitHub.repository.issues.edges.find(({ node }) => {
+  const json: FetchIssuesResponse = await res.json();
+
+  // Once `ONEGRAPH_AUTHLIFY_TOKEN` is working again in production,
+  // we can remove the above workaround and uncomment the below code:
+  // const { data } = await NetlifyGraph.fetchIssues(
+  //   {},
+  //   { accessToken: process.env.ONEGRAPH_AUTHLIFY_TOKEN }
+  // );
+
+  const post = json.data.gitHub.repository.issues.edges.find(({ node }) => {
     return slugify(node.title).toLowerCase() === slug;
   });
 
