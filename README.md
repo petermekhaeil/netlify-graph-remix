@@ -1,6 +1,8 @@
 # netlify-graph-remix
 
-Demo of [Remix](https://remix.run/) web application using [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) to fetch data from the GitHub API. When a new issue is created in this repository, it will be listed as a blog post.
+Demo of [Remix](https://remix.run/) using [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) to fetch data from GitHub. When a new issue is created in this repository, it will be listed as a blog post.
+
+Demo: [https://netlify-graph-remix.netlify.app/](https://netlify-graph-remix.netlify.app/)
 
 ## Setup
 
