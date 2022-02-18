@@ -1,16 +1,10 @@
-# Welcome to Remix!
+# netlify-graph-remix
 
-- [Remix Docs](https://remix.run/docs)
+Demo of [Remix](https://remix.run/) web application using [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) to fetch data from the GitHub API. When a new issue is created in this repository, it will be listed as a blog post.
 
-## Netlify Setup
+## Setup
 
-1. Install the [Netlify CLI](https://www.netlify.com/products/dev/):
-
-```sh
-npm i -g netlify-cli
-```
-
-If you have previously installed the Netlify CLI, you should update it to the latest version:
+1. Install the latest version of the [Netlify CLI](https://www.netlify.com/products/dev/):
 
 ```sh
 npm i -g netlify-cli@latest
@@ -19,34 +13,24 @@ npm i -g netlify-cli@latest
 2. Sign up and log in to Netlify:
 
 ```sh
-netlify login
+ntl login
 ```
 
 3. Create a new site:
 
 ```sh
-netlify init
+ntl init
 ```
 
 ## Development
 
-The Netlify CLI starts your app in development mode, rebuilding assets on file changes.
+Start a local CLI session with Netlify Dev:
 
 ```sh
-npm run dev
+ntl dev --graph
 ```
 
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
+## Learn More
 
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-$ npm run build
-# preview deployment
-$ netlify deploy
-
-# production deployment
-$ netlify deploy --prod
-```
+- [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation)
+- [Remix Docs](https://remix.run/docs)
