@@ -44,9 +44,13 @@ export default function Index() {
       <h1>Netlify Graph + Remix</h1>
       <p>
         This application demonstrates Remix using Netlify Graph to fetch data
-        from GitHub. When a{' '}
-        <a href="https://github.com/petermekhaeil/netlify-graph-remix/issues/new">
-          new issue is created in this repository
+        from GitHub. When a new issue is created in this{' '}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/petermekhaeil/netlify-graph-remix"
+        >
+          repository
         </a>
         , it will be listed below as a blog post.
       </p>
