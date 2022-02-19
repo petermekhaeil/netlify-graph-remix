@@ -72,7 +72,10 @@ export default function PostSlug() {
   return (
     <div className="container">
       <h1>{post.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div
+        className="post-body"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
       <div className="comments-container">
         <h2>Comments</h2>
         <a target="_blank" rel="noreferrer" href={post.url}>

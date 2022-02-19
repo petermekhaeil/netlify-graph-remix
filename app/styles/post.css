@@ -1,5 +1,6 @@
 .comments-container {
   width: 100%;
+  border-top: 2px solid #243238;
 }
 
 .comment {
@@ -37,4 +38,35 @@
 .comment-body {
   font-size: 15px;
   padding: 0 16px;
+}
+
+.post-body img {
+  width: 100%;
+}
+
+pre {
+  box-sizing: border-box;
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 18px;
+  border-radius: 8px;
+  line-height: 1.5;
+  background-color: #000000;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre > code {
+  display: block;
+  padding: 18px;
+}
+
+:not(pre) > code {
+  display: inline;
+  white-space: pre-wrap;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #6e768166;
+  border-radius: 6px;
 }
