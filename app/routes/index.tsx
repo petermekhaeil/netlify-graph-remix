@@ -40,7 +40,17 @@ export default function Index() {
   let data = useLoaderData<LoaderData>();
 
   return (
-    <div>
+    <div className="container">
+      <h1>Netlify Graph + Remix</h1>
+      <p>
+        This application demonstrates Remix using Netlify Graph to fetch data
+        from GitHub. When a{' '}
+        <a href="https://github.com/petermekhaeil/netlify-graph-remix/issues/new">
+          new issue is created in this repository
+        </a>
+        , it will be listed below as a blog post.
+      </p>
+      <h2>Posts</h2>
       <ul>
         {data.map((item) => (
           <li key={item.id}>
@@ -48,6 +58,15 @@ export default function Index() {
           </li>
         ))}
       </ul>
+      <p>
+        <small>
+          Source code available on{' '}
+          <a href="https://github.com/petermekhaeil/netlify-graph-remix">
+            GitHub
+          </a>
+          .
+        </small>
+      </p>
     </div>
   );
 }

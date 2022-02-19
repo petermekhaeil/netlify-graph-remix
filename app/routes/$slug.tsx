@@ -49,7 +49,7 @@ export default function PostSlug() {
   const slug = useLoaderData();
 
   return (
-    <div>
+    <div className="container">
       <h1>{slug.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: slug.html }} />
     </div>

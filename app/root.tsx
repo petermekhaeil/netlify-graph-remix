@@ -1,3 +1,4 @@
+import type { LinksFunction } from 'remix';
 import {
   Links,
   LiveReload,
@@ -8,8 +9,31 @@ import {
 } from 'remix';
 import type { MetaFunction } from 'remix';
 
+import globalStylesUrl from './styles/global.css';
+import globalMediumStylesUrl from './styles/global-medium.css';
+import globalLargeStylesUrl from './styles/global-large.css';
+
 export const meta: MetaFunction = () => {
   return { title: 'Netlify Graph + Remix' };
+};
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'stylesheet',
+      href: globalStylesUrl
+    },
+    {
+      rel: 'stylesheet',
+      href: globalMediumStylesUrl,
+      media: 'print, (min-width: 640px)'
+    },
+    {
+      rel: 'stylesheet',
+      href: globalLargeStylesUrl,
+      media: 'screen and (min-width: 1024px)'
+    }
+  ];
 };
 
 export default function App() {
