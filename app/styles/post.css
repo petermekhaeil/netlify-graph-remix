@@ -1,0 +1,40 @@
+.comments-container {
+  width: 100%;
+}
+
+.comment {
+  padding: 16px 0;
+  display: flex;
+}
+
+.comment-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+  margin-top: 4px;
+  margin-bottom: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.comment-content {
+  border-radius: 8px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-dark-black-default);
+  box-shadow: var(--basicShadow);
+}
+
+.comment-timestamp {
+  font-size: 14px;
+  margin-bottom: 10px;
+  background-color: var(--color-dark-gray-darker);
+  padding: 8px 16px;
+}
+
+.comment-body {
+  font-size: 15px;
+  padding: 0 16px;
+}

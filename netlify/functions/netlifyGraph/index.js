@@ -50,9 +50,9 @@ export const verifySignature = (input) => {
   return true;
 };
 
-const operationsDoc = `query Issues @netlify(id: """72dcbc94-e91a-4f84-98eb-b10c0a20a814""", doc: """Fetch repo issues""") {
+const operationsDoc = `query Issues($owner: String = "petermekhaeil", $name: String = "netlify-graph-remix") @netlify(id: """72dcbc94-e91a-4f84-98eb-b10c0a20a814""", doc: """Fetch repo issues""") {
   gitHub {
-    repository(name: "netlify-graph-remix", owner: "petermekhaeil") {
+    repository(name: $name, owner: $owner) {
       issues(first: 100, states: OPEN) {
         edges {
           node {
@@ -75,6 +75,19 @@ const operationsDoc = `query Issues @netlify(id: """72dcbc94-e91a-4f84-98eb-b10c
                 }
               }
             }
+            comments(first: 100) {
+              nodes {
+                body
+                createdAt
+                id
+                author {
+                  avatarUrl
+                  login
+                }
+                url
+              }
+            }
+            url
           }
         }
       }

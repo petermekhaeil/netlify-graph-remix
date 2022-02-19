@@ -23,6 +23,17 @@ export type GraphQLError = {
   extensions: Record<string, unknown>;
 };
 
+export type IssuesInput = {
+  /**
+   * The login field of a user or organization
+   */
+  owner?: string;
+  /**
+   * The name of the repository
+   */
+  name?: string;
+};
+
 export type Issues = {
   /**
    * Any data from the function will be returned here
@@ -94,6 +105,46 @@ export type Issues = {
                   };
                 }>;
               };
+              /**
+               * A list of comments associated with the Issue.
+               */
+              comments: {
+                /**
+                 * A list of nodes.
+                 */
+                nodes: Array<{
+                  /**
+                   * The body as Markdown.
+                   */
+                  body: string;
+                  /**
+                   * Identifies the date and time when the object was created.
+                   */
+                  createdAt: unknown;
+                  id: string;
+                  /**
+                   * The actor who authored the comment.
+                   */
+                  author: {
+                    /**
+                     * A URL pointing to the actor's public avatar.
+                     */
+                    avatarUrl: string;
+                    /**
+                     * The username of the actor.
+                     */
+                    login: string;
+                  };
+                  /**
+                   * The HTTP URL for this issue comment
+                   */
+                  url: string;
+                }>;
+              };
+              /**
+               * The HTTP URL for this issue
+               */
+              url: string;
             };
           }>;
         };
@@ -110,9 +161,6 @@ export type Issues = {
  * Fetch repo issues
  */
 export function fetchIssues(
-  /**
-   * Pass `{}` as no variables are defined for this function.
-   */
-  variables: Record<string, never>,
+  variables: IssuesInput,
   options?: NetlifyGraphFunctionOptions
 ): Promise<Issues>;

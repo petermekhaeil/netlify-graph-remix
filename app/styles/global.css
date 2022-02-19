@@ -1,12 +1,17 @@
 /*
- * Styling from Netlify's Example: https://github.com/netlify/example-hello-world-functions
+ * Styling from Netlify's Theme
+ * Example: https://github.com/netlify/example-hello-world-functions
  */
+
 :root {
   --primary-text-color: #c6c9ca;
   --secondary-text-color: #ffffff;
   --primary-page-color: #09171d;
   --accent-color: #5cebdf;
   --accent-color-alternate: #ff6b60;
+  --color-dark-black-default: #0e1e25;
+  --color-dark-gray-darker: #1b2b32;
+  --basicShadow: 0 2px 4px 0 hsl(198, 73%, 1%);
 }
 
 html,
