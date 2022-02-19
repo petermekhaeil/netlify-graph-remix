@@ -29,14 +29,9 @@ body {
   line-height: 28px;
   font-size: 14px;
   background-color: var(--primary-page-color);
-  padding: 2rem;
+  padding: 1rem;
   padding-bottom: 6rem;
   border-top: 5px solid var(--accent-color);
-  @include bp(mid) {
-  }
-  @include bp(wide) {
-    font-size: 18px;
-  }
 }
 
 .container {
@@ -64,7 +59,7 @@ h1,
 h2,
 h3 {
   line-height: 1.4;
-  margin-top: 1.5em;
+  margin-top: 12px;
   color: var(--secondary-text-color);
 }
 
