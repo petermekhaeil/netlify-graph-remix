@@ -1,6 +1,6 @@
 # netlify-graph-remix
 
-Demo of [Remix](https://remix.run/) using [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) to fetch data from GitHub. When a new issue is created in this repository, it will be listed as a blog post.
+Demo of [Remix](https://remix.run/) using [Netlify Graph](https://github.com/netlify/labs/tree/main/features/graph/documentation) to fetch data from GitHub. When a new issue is created in this repository, it will be listed as a blog post. [Try it out!](https://github.com/petermekhaeil/netlify-graph-remix/issues/new)
 
 Demo: [https://netlify-graph-remix.netlify.app/](https://netlify-graph-remix.netlify.app/)
 
