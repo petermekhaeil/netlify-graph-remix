@@ -52,7 +52,7 @@ export default function Index() {
         >
           repository
         </a>
-        , it will be listed below as a blog post.
+        , it will be listed below as a blog post. Try it out!
       </p>
       <h2>Posts</h2>
       <ul>
